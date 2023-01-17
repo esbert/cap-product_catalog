@@ -1,0 +1,59 @@
+### Get Orders  ManageOrders --> manage-orders se convierte en minuscula
+
+GET http://localhost:4004/manage-orders/Orders
+
+### Get Orders  ManageOrders
+GET http://localhost:4004/manage-orders/Orders('client1@client1.com')
+
+### Create Orders  ManageOrders
+POST http://localhost:4004/manage-orders/Orders HTTP/1.1
+Content-Type: application/json
+
+{
+
+        "ClientEmail"  : "client5@client5.com",
+        "FirstName"    : "Lorena",
+        "LastName"     : "Garcia",
+        "CreatedOn"    : "2024-10-10"
+ 
+}
+
+### Update Orders  ManageOrders
+PUT http://localhost:4004/manage-orders/Orders('client1@client1.com') HTTP/1.1
+Content-Type: application/json
+
+{
+
+        "FirstName"    : "FirstName Updated",
+        "LastName"     : "LastName Updated"
+  
+
+ 
+}
+
+### Delete Orders  ManageOrders
+DELETE http://localhost:4004/manage-orders/Orders('client5@client5.com')
+
+
+### Get Customer Rate - Function  ManageOrders
+GET http://localhost:4004/manage-orders/geClientTaxRate(ClientEmail='client2@client2.com')
+
+
+### Cancel Order - Action ManageOrders
+POST  http://localhost:4004/manage-orders/cancelOrder
+Content-Type: application/json
+
+{"ClientEmail"  : "client2@client2.com" }
+
+### Get Customer Rate - Function  ManageOrders Bound
+GET http://localhost:4004/manage-orders/Orders('client1@client1.com')/ManageOrders.geClientTaxRate(ClientEmail='client2@client2.com')
+
+
+### Cancel Order - Action ManageOrders Bound
+POST  http://localhost:4004/manage-orders/Orders('client1@client1.com')/ManageOrders.cancelOrder
+Content-Type: application/json
+
+{"ClientEmail"  : "client2@client2.com" }
+
+### Get Incidents Servicio Externo
+GET http://localhost:4004/sapbackend-exit/Incidents
